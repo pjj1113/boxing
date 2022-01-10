@@ -7,7 +7,7 @@
       <li><router-link to="/epidemic">疫情防控</router-link></li>
       <li><router-link to="/community">社区服务</router-link></li>
       <li><router-link to="/work">工作动态</router-link></li>
-       <li><router-link to="/person_room">建党引领</router-link></li>
+       <li><router-link to="/epidemic">建党引领</router-link></li>
     </ul>
   </div>
 </template>
