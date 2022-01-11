@@ -58,11 +58,11 @@
       <div class="conter-box">
         <div class="conter-title"><span>事件类型占比分析</span></div>
         <div class="conter-detail shijianzhanbi">
-          <div id="myChart" style="height: 2.5rem; width: 2.5rem"></div>
+          <div id="myChart" style="height: 2rem; width: 3rem"></div>
         </div>
       </div>
 
-      <div class="conter-box yujingtixing">
+      <div class="conter-box">
         <div class="conter-title"><span>最新事件排名</span></div>
         <div class="conter-detail">
           <ul class="ul-table">
@@ -75,29 +75,28 @@
             </li>
             <li>
               <span>1</span>
-              <span>政策质询</span>
-              <span>12</span>
+              <span>政策咨询</span>
+              <span>23</span>
               <span>待派发</span>
               <span>张**</span>
             </li>
             <li>
-              <span>1</span>
-              <span>政策质询</span>
-              <span>12</span>
+              <span>2</span>
+              <span>政策咨询</span>
+              <span>23</span>
               <span>待派发</span>
               <span>张**</span>
             </li>
             <li>
-              <span>1</span>
-              <span>政策质询</span>
-              <span>12</span>
+              <span>3</span>
+              <span>政策咨询</span>
+              <span>23</span>
               <span>待派发</span>
               <span>张**</span>
             </li>
           </ul>
         </div>
       </div>
-      
     </div>
     <div class="work-right">
       <div class="conter-box renkouqinkuan wangluo">
@@ -112,17 +111,23 @@
             </li>
             <li>
               <span>社工数量</span>
-              <span><strong>{{ 323 }}</strong></span>
+              <span
+                ><strong>{{ 323 }}</strong></span
+              >
             </li>
           </ul>
-          
-          <p>社工名单</p>
 
-          
+          <p>社工名单</p>
+          <div class="shegong">
+            <p v-for="i in 4">
+              <img/>
+              <span>张三</span>
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="conter-box ">
+      <div class="conter-box">
         <div class="conter-title"><span>事件来源统计</span></div>
         <div class="conter-detail eventlaiyuan">
           <ul>
@@ -156,11 +161,7 @@
               <i></i>
               <strong>{{ 21 }}</strong>
             </li>
-            
-            
           </ul>
-
-          
         </div>
       </div>
     </div>
@@ -194,15 +195,8 @@ export default {
           //     shadowColor: "rgba(0, 0, 0, 0.5)",
           //   },
           // },
-          labelLine: {
-            show:false,
-            normal: {
-              show: false
-            }
-          }
         },
       ],
-      
     };
     var myChart = echarts.init(document.getElementById("myChart"));
     myChart.setOption(option);
@@ -270,9 +264,73 @@ export default {
     }
   }
 }
+.eventlaiyuan {
+  padding: 0.15rem;
+  box-sizing: border-box;
+  ul {
+    display: flex;
+    flex-direction: column;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 0.5rem;
+      span {
+        display: inline-block;
+      }
+      i {
+        display: inline-block;
+        width: 3rem;
+        height: 0.2rem;
+        background: #3dadf9;
+      }
+    }
+  }
+}
+.ul-table {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 0.2rem;
+  li {
+    display: flex;
+    line-height: 0.5rem;
+    span {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 0.16rem;
+      &:nth-child(1) {
+        flex: 0.4rem;
+      }
+      &:nth-child(2) {
+        flex: 1;
+      }
+      &:nth-child(3) {
+        flex: 1;
+      }
+      &:nth-child(4) {
+        flex: 1;
+      }
+      &:nth-child(5) {
+        flex: 1;
+      }
+    }
+    &:nth-child(even) {
+      background: #224853;
+    }
+    &:nth-child(odd) {
+      background: #112530;
+    }
+  }
+  :nth-child(1) span {
+    background: #999;
+  }
+}
 
 .shijianzhanbi {
-  height: 2.5rem;
+  height: 2rem;
 }
 .wangluo {
   ul {
@@ -283,12 +341,32 @@ export default {
       span {
         font-weight: 400;
         strong {
-          font-size: 0.20rem;
+          font-size: 0.2rem;
           padding-left: 0.2rem;
         }
       }
-      
-      
+    }
+  }
+  p {
+    font-size: 0.18rem;
+  }
+  .shegong {
+    display: flex;
+    justify-content: space-between;
+    p {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      flex-direction: column;
+      width: 23%;
+      img {
+        width: 100%;
+        height: 1.5rem;
+      }
+      span {
+        font-size: 0.16rem;
+        margin-top: 0.1rem;
+      }
     }
   }
 }
@@ -296,6 +374,10 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #071726bd;
+  padding: 0.12rem;
+  border-radius: 0.05rem;
+  margin-bottom: 0.15rem;
   .conter-title {
     position: relative;
     color: #fff;
@@ -333,95 +415,7 @@ export default {
   .conter-detail {
     position: relative;
     width: 100%;
-    border-left: 0.01rem solid #00d8ff;
     margin-top: 0.2rem;
-    background: linear-gradient(
-      90deg,
-      rgba(1, 7, 21, 0.9) 0%,
-      rgba(1, 10, 23, 0.6) 100%
-    );
-  }
-}
-.eventlaiyuan {
-  padding: 0.15rem;
-  box-sizing: border-box;
-  ul {
-    display: flex;
-    flex-direction: column;
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      line-height: 0.5rem;
-      span {
-        display: inline-block;
-      }
-      i {
-        display: inline-block;
-        width: 3rem;
-        height: 0.2rem;
-        background: chartreuse;
-      }
-    }
-  }
-}
-.yujingtixing {
-  p {
-    display: flex;
-    span {
-      display: inline-block;
-      width: 0.6rem;
-      height: 0.25rem;
-      text-align: center;
-      line-height: 0.25rem;
-      background: url("../../assets/person/bar_btn_active.png") no-repeat;
-      background-size: 100% 100%;
-      margin-left: 0.1rem;
-    }
-  }
-  .ul-table {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin-top: 0.1rem;
-    padding: 0.15rem;
-    box-sizing: border-box;
-    li {
-      display: flex;
-      line-height: 0.35rem;
-      span {
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        padding: 0 0.04rem;
-
-        &:nth-child(1) {
-         flex: 1;
-        }
-        &:nth-child(2) {
-          flex: 1;
-        }
-        &:nth-child(3) {
-          flex: 1;
-        }
-        &:nth-child(4) {
-          flex: 1;
-        }
-        &:nth-child(5) {
-          flex: 1;
-        }
-      }
-      &:nth-child(even) {
-        background: #224853;
-      }
-      &:nth-child(odd) {
-        background: #112530;
-      }
-    }
-    :nth-child(1) span {
-      background: #999;
-    }
   }
 }
 </style>

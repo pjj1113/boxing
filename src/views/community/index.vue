@@ -229,7 +229,7 @@ export default {
         align-items: center;
         color: #fff;
         width: 25%;
-        margin: 0.15rem 0;
+        margin: 0.05rem 0;
         span {
           font-size: 0.18rem;
           font-weight: 500;
@@ -326,6 +326,11 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #071726bd;
+  padding: 0.12rem;
+  border-radius: 0.05rem;
+  box-sizing: border-box;
+  margin-bottom: 0.1rem;
   .conter-title {
     position: relative;
     color: #fff;
@@ -363,13 +368,8 @@ export default {
   .conter-detail {
     position: relative;
     width: 100%;
-    border-left: 0.01rem solid #00d8ff;
     margin-top: 0.2rem;
-    background: linear-gradient(
-      90deg,
-      rgba(1, 7, 21, 0.9) 0%,
-      rgba(1, 10, 23, 0.6) 100%
-    );
+    
   }
 }
 .ul-table {

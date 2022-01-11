@@ -1,9 +1,9 @@
 <template>
   <div class="trip">
     <div class="trip-left">
-      <div class="conter-box renkouqinkuan">
+      <div class="conter-box jinriyiqing">
         <div class="conter-title"><span>今日疫情防控</span></div>
-        <div class="conter-detail" style="height: 2rem">
+        <div class="conter-detail" style="height: 1.8rem">
           <ul>
             <li>
               <span>体温监测总数</span>
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div class="conter-box renkouqinkuan">
+      <div class="conter-box jinriyiqing">
         <div class="conter-title"><span>体温监测记录</span></div>
         <div class="conter-detail" style="height: 2rem">
           <div style="width: 100%;height: 100%;" id="myChart"></div>
@@ -259,7 +259,7 @@ export default {
     width: 6rem;
   }
 }
-.renkouqinkuan {
+.jinriyiqing {
   display: flex;
   flex-direction: column;
   ul {
@@ -351,6 +351,11 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #071726bd;
+  padding: 0.12rem;
+  box-sizing: border-box;
+  margin-bottom: 0.15rem;
+  border-radius: 0.05rem;
   .conter-title {
     position: relative;
     color: #fff;
@@ -388,13 +393,7 @@ export default {
   .conter-detail {
     position: relative;
     width: 100%;
-    border-left: 0.01rem solid #00d8ff;
     margin-top: 0.2rem;
-    background: linear-gradient(
-      90deg,
-      rgba(1, 7, 21, 0.9) 0%,
-      rgba(1, 10, 23, 0.6) 100%
-    );
   }
 }
 </style>

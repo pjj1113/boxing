@@ -183,6 +183,18 @@
                 <span>好景国际2栋3号</span>
                 <span>12</span>
               </li>
+              <li>
+                <span>1</span>
+                <span>223</span>
+                <span>好景国际2栋3号</span>
+                <span>12</span>
+              </li>
+              <li>
+                <span>1</span>
+                <span>223</span>
+                <span>好景国际2栋3号</span>
+                <span>12</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -229,12 +241,171 @@
           </ul>
         </div>
       </div>
+
+      <div class="conter-box">
+        <div class="conter-title"><span>住宅状态信息</span></div>
+        <div class="conter-detail zhuzaizhuantai">
+          <div class="zhuzaizhuantai-top">
+            <el-select v-model="form.value" placeholder="请选择">
+              <el-option
+                v-for="item in options1"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value">
+              </el-option>
+            </el-select>
+
+            <el-select v-model="form.value1" placeholder="请选择">
+              <el-option
+                v-for="item in options1"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value">
+              </el-option>
+            </el-select>
+
+            <el-select v-model="form.value2" placeholder="请选择">
+              <el-option
+                v-for="item in options1"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value">
+              </el-option>
+            </el-select>
+
+            <el-select v-model="form.value3" placeholder="请选择">
+              <el-option
+                v-for="item in options1"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          
+          </div>
+          <div class="zhuzaizhuantai-content">
+            <ul>
+              <li v-for="(index) in 20" :key="index">{{ index }}</li>
+            </ul>
+          </div>
+          <div class="zhuzaizhuantai-bottom">
+            <div class="fanwudetail">
+              <p>fangw</p>
+              <ul class="zhuzaizhuantai-after">
+                <li><span>房屋地址</span><strong>好景国际</strong></li>
+                <li><span>房屋地址</span><strong>好景国际</strong></li>
+                <li><span>房屋地址</span><strong>好景国际</strong></li>
+                <li><span>房屋地址</span><strong>好景国际</strong></li>
+              </ul>
+            </div>
+            <div class="zhuzaizhuantai-echart">
+              <div style="width:100%;height:100%" id="age"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import * as echarts from "echarts/core";
+export default {
+  data() {
+    return {
+      form: {
+        value: '',
+        value1: '',
+        value2: '',
+        value3: ''
+      },
+      options1: [
+        { name: '1', value: '1' }
+      ],
+      myChartAge: null,
+      agetext: '',
+      agesubtext: '',
+      special_group: [],
+      age_distribution: [{ name: '装修', value: 23 }, { name: '空量', value: 23 },{ name: '自住', value: 23 },{ name: '出租', value: 23 }, {  }]
+    };
+  },
+  computed: {
+    ageOption() {
+      let that = this;
+      return {
+        color: ["#009122", "#00ff90", "#f3b834", "#48c7ff"],
+        title: {
+          text: that.agetext,
+          subtext: that.agesubtext,
+          textAlign: "center",
+          x: "58%",
+          y: "35%",
+          textStyle: {
+            color: "#fff",
+            fontSize: 10,
+            fontWeight: "bolder",
+          },
+          subtextStyle: {
+            color: "#00fb8e",
+            fontSize: 10,
+            fontWeight: "bolder",
+          },
+        },
+        legend: {
+          orient: "vertical",
+          left: "left",
+          top: "center",
+          align: "left",
+          itemWidth: 12,
+          itemHeight: 8,
+          textStyle: {
+            color: "#fff",
+          },
+        },
+        grid: {
+          left: 0,
+        },
+        series: [
+          {
+            name: "Access From",
+            type: "pie",
+            radius: ["45%", "60%"],
+            center: ["60%", "50%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            emphasis: {
+              label: {
+                show: false,
+                fontSize: "10",
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+            data: that.age_distribution
+          },
+        ],
+      };
+
+    },
+  },
+  mounted() {
+    let that = this
+    this.myChartAge = echarts.init(document.getElementById("age"));
+    that.agetext = this.age_distribution[0].name
+    that.agesubtext = this.age_distribution[0].value
+    this.myChartAge.setOption(that.ageOption);
+    this.myChartAge.off("click");
+    this.myChartAge.on("click", function (params) {
+      that.agetext = params.name;
+      that.agesubtext = params.value;
+      that.myChartAge.setOption(that.ageOption);
+    });
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -243,7 +414,7 @@ export default {};
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0;
   box-sizing: border-box;
   .person-left {
     display: flex;
@@ -252,8 +423,9 @@ export default {};
   }
   .person-content {
     position: absolute;
-    left: 5.8rem;
-    bottom: 0.5rem;
+    left: 50%;
+    margin-left: -3.5rem;
+    bottom: 0rem;
     width: 7rem;
   }
   .person-right {
@@ -263,13 +435,15 @@ export default {};
   }
 }
 .person-room {
-
   color: #fff;
   z-index: 10000;
   .conter-box {
     display: flex;
     flex-direction: column;
     width: 100%;
+    background: #071726bd;
+    padding: 0.12rem;
+    border-radius: 0.05rem;
     .conter-title {
       position: relative;
       color: #fff;
@@ -307,13 +481,13 @@ export default {};
     .conter-detail {
       position: relative;
       width: 100%;
-      border-left: 0.01rem solid #00d8ff;
+      // border-left: 0.01rem solid #00d8ff;
       margin-top: 0.2rem;
-      background: linear-gradient(
-        90deg,
-        rgba(1, 7, 21, 0.9) 0%,
-        rgba(1, 10, 23, 0.6) 100%
-      );
+      // background: linear-gradient(
+      //   90deg,
+      //   rgba(1, 7, 21, 0.9) 0%,
+      //   rgba(1, 10, 23, 0.6) 100%
+      // );
     }
   }
 }
@@ -321,7 +495,7 @@ export default {};
   display: flex;
   flex-direction: column;
   ul {
-    min-height: 1.2rem;
+    min-height: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -376,7 +550,10 @@ export default {};
   }
 }
 .shequgailan {
+  margin-bottom: 0.1rem;
+  display: flex;
   ul {
+    height: 2.5rem;
     flex-wrap: wrap;
     li {
       width: 25%;
@@ -405,6 +582,7 @@ export default {};
     margin-top: 0.2rem;
     li {
       display: flex;
+      line-height: 0.5rem;
       span {
         display: inline-block;
         overflow: hidden;
@@ -498,4 +676,87 @@ export default {};
       }
     }
   }
+
+  .zhuzaizhuantai {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .zhuzaizhuantai-content {
+    width: 100%;
+    margin-top: 0.15rem;
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 0.7rem;
+        height: 0.3rem;
+        margin: 0 0.1rem;
+        line-height: 0.4rem;
+        margin-bottom: 0.1rem;
+        background: #000;
+      }
+    }
+  }
+  .zhuzaizhuantai-bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.15rem;
+    position: relative;
+    box-sizing: border-box;
+    .zhuzaizhuantai-after::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: #fff;
+    }
+    .fanwudetail {
+      position: relative;
+      width: 50%;
+      ul {
+        padding-left: 0.15rem;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        margin-top: 0.15rem;
+        li {
+          display: flex;
+          span {
+            display: inline-block;
+            width: 1rem;
+            font-size: 0.16rem;
+            color: #65beff;
+          }
+          strong {
+            font-size: 0.16rem;
+          }
+        }
+      }
+    }
+  }
+  .zhuzaizhuantai-echart {
+    width: 50%;
+    height: 1.5rem;
+  }
+}
+/deep/.el-select {
+  width: 1rem;
+  margin-left: 0.1rem;
+}
+/deep/.el-input--suffix .el-input__inner {
+  background: transparent;
+}
+/deep/.el-popper {
+  z-index: 10000;
+}
 </style>

@@ -12,5 +12,7 @@ html,body,#app {
   padding: 0;
   margin: 0;
   color: #fff;
+  background: url('./assets/bg.png') no-repeat;
+  background-size: 100% 100%;
 }
 </style>

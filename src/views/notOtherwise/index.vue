@@ -306,6 +306,8 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #071726bd;
+  padding: 0.12rem;
   .conter-title {
     position: relative;
     color: #fff;
@@ -345,11 +347,7 @@ export default {
     width: 100%;
     border-left: 0.01rem solid #00d8ff;
     margin-top: 0.2rem;
-    background: linear-gradient(
-      90deg,
-      rgba(1, 7, 21, 0.9) 0%,
-      rgba(1, 10, 23, 0.6) 100%
-    );
+
   }
 }
 .list-jindu {
