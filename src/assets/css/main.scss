@@ -1,0 +1,42 @@
+// 样式
+.bx-red {
+  color: #F24466
+}
+.bx-blue {
+  color: #6FE9FF
+}
+.bx-green {
+  color: #00FE90
+}
+.bx-yellow {
+  color: #FFCD5C
+}
+.bx-purple {
+  color: #8B8FFF
+}
+
+
+
+// 组件
+.target-block {
+  text-align: center;
+  .target-title {
+    font-size: 0.15rem;
+  }
+  .target-num {
+    font-size:  0.36rem;
+    font-weight: 400;
+  }
+}
+.bo-table {
+  text-align: center;
+  .el-row {
+    padding: 2px 0;
+    &:nth-child(even) {
+      background: #22485391;
+    }
+    &:nth-child(odd) {
+      background: #1125309a;
+    }
+  }
+}

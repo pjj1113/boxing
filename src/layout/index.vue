@@ -30,8 +30,8 @@ export default {
 .layout {
   position: relative;
   width: 19.20rem;
-  height: 10.80rem;
-  background: #051425;
+  height: 100%;
+  // background: #051425;
   .layout-main {
     position: relative;
     width: 100%;

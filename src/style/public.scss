@@ -1,0 +1,50 @@
+.conter-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #071726bd;
+  padding: 0.12rem;
+  border-radius: 0.05rem;
+  box-sizing: border-box;
+  margin-bottom: 0.1rem;
+  .conter-title {
+    position: relative;
+    color: #fff;
+    font-size: 0.24rem;
+    height: 0.4rem;
+    &::after {
+      position: absolute;
+      bottom: -0.1rem;
+      left: 0;
+      height: 0.1rem;
+      width: 100%;
+      content: "";
+      display: inline-block;
+      background: url("../assets/person/title_bottom.png") no-repeat;
+      background-size: 100% 100%;
+    }
+    span {
+      display: inline-block;
+      position: relative;
+      text-indent: 0.24rem;
+      &::after {
+        position: absolute;
+        top: 0.05rem;
+        left: 0;
+        content: "";
+        display: inline-block;
+        width: 0.14rem;
+        height: 0.14rem;
+        border: 0.02rem solid #65beff;
+        border-radius: 50%;
+        opacity: 1;
+      }
+    }
+  }
+  .conter-detail {
+    position: relative;
+    width: 100%;
+    margin-top: 0.2rem;
+    
+  }
+}

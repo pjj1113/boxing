@@ -13,7 +13,14 @@ const routes = [
     path: '/home',
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '@/layout/index.vue'),
+    redirect: '/index',
     children: [
+      {
+        path: '/index',
+        name: 'index',
+        meta: { title: '首页' },
+        component: () => import(/* webpackChunkName: "about" */ '@/views/index/index.vue'),
+      },
       {
         path: '/person_room',
         name: 'person_room',

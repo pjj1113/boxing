@@ -8,6 +8,7 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import './assets/css/main.scss'
 
 Vue.use(ElementUI);
 

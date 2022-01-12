@@ -3,9 +3,35 @@
     <div class="notOtherwise-left">
       <div class="conter-box">
         <div class="conter-title"><span>12345热线</span></div>
-        <div class="conter-detail 135">
-          <div></div>
+        <div class="conter-detail">
+          <ul class="rexian">
+            <li>
+              <img src="../../assets/not/xiangying.png"/>
+              <div>
+                <span>响应率</span>
+                <strong>100%</strong>
+              </div>
+            </li>
+            <li>
+              <img src="../../assets/not/jiejue.png"/>
+              <div>
+                <span>解决率</span>
+                <strong>90%</strong>
+              </div>
+            </li>
+            <li>
+              <img src="../../assets/not/xiangying.png"/>
+              <div>
+                <span>满意度</span>
+                <strong>100%</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="rexianfenbutitle">热线类别分布</p>
+
           <div style="width: 100%; height: 3rem" id="myChart"></div>
+          <p class="rexianfenbutitle">热线社区分布</p>
           <div
             style="width: 100%; height: 2.5rem; margin-top: 0.2rem"
             id="myChart1"
@@ -17,7 +43,7 @@
       <div class="conter-box">
         <div class="conter-title"><span>办理统计</span></div>
         <div class="conter-detail 135">
-          <p>总办理工单</p>
+          <p class="rexianfenbutitle">总办理工单</p>
           <ul class="list-show">
             <li>
               <span>已结办</span>
@@ -44,8 +70,33 @@
               <span><strong>{{ 245 }}</strong></span>
             </li>
           </ul>
+          
+          <p class="rexianfenbutitle">办理质量情况</p>
+          <div class="zhiliangqingkuan">
+            <ul>
+              <li>
+                <span>办结率</span>
+                <div>
+                  <el-progress type="circle" :color="'#00D8FF'" :percentage="90"></el-progress>
+                </div>
+              </li>
+              <li>
+                <span>重办率</span>
+                <el-progress type="circle" :color="'#FFCD5C'" :percentage="25"></el-progress>
+              </li>
+              <li>
+                <span>满意率</span>
+                <el-progress type="circle" :color="'#00D8FF'" :percentage="90"></el-progress>
+              </li>
+              <li>
+                <span>逾期率</span>
+                <el-progress type="circle" :color="'#F24466'" :percentage="25"></el-progress>
+              </li>
+            </ul>
+            
+          </div>
 
-          <p>工单分类统计</p>
+          <p class="rexianfenbutitle">工单分类统计</p>
           <ul class="ul-table">
             <li>
               <span>事件类型</span>
@@ -95,37 +146,37 @@
             </li>
           </ul>
 
-          <p>社区办事统计</p>
-          <ul class="ul-table banshitongji">
-            <li>
-              <span>接收时间</span>
-              <span>投诉人</span>
-              <span>办理</span>
-              <span>姓名</span>
-              <span>居住地址</span>
-            </li>
-            <li>
-              <span>2022-01-01</span>
-              <span>李**</span>
-              <span></span>
-              <span>张**</span>
-              <span>好景国际</span>
-            </li>
-            <li>
-              <span>2022-01-01</span>
-              <span>李**</span>
-              <span></span>
-              <span>张**</span>
-              <span>好景国际</span>
-            </li>
-            <li>
-              <span>2022-01-01</span>
-              <span>李**</span>
-              <span></span>
-              <span>张**</span>
-              <span>好景国际</span>
-            </li>
-          </ul>
+          <p class="rexianfenbutitle">社区办事统计</p>
+          <div class="bo-table" style="padding: 0 10px">
+            <el-row type="flex" justify="space-between">
+              <el-col :span="5">接收时间</el-col>
+              <el-col :span="5">投诉人</el-col>
+              <el-col :span="5">办理</el-col>
+              <el-col :span="4">姓名</el-col>
+              <el-col :span="5">居住地址</el-col>
+            </el-row>
+            <el-row type="flex" justify="space-between">
+              <el-col :span="5">2022-01-01</el-col>
+              <el-col :span="5">李**</el-col>
+              <el-col :span="5"></el-col>
+              <el-col :span="4">张**</el-col>
+              <el-col :span="5">好景国际</el-col>
+            </el-row>
+             <el-row type="flex" justify="space-between">
+              <el-col :span="5">2022-01-01</el-col>
+              <el-col :span="5">李**</el-col>
+              <el-col :span="5"></el-col>
+              <el-col :span="4">张**</el-col>
+              <el-col :span="5">好景国际</el-col>
+            </el-row>
+             <el-row type="flex" justify="space-between">
+              <el-col :span="5">2022-01-01</el-col>
+              <el-col :span="5">李**</el-col>
+              <el-col :span="5"></el-col>
+              <el-col :span="4">张**</el-col>
+              <el-col :span="5">好景国际</el-col>
+            </el-row>
+          </div>
 
         </div>
       </div>
@@ -148,6 +199,7 @@ export default {
       yAxis: {
         type: "value",
       },
+
       series: [
         {
           data: [120, 200, 150, 80, 70, 110, 130],
@@ -163,8 +215,15 @@ export default {
         trigger: "item",
       },
       legend: {
-        top: "5%",
-        left: "center",
+        orient: "vertical",
+        left: "5%",
+        top: "center",
+        align: "left",
+        itemWidth: 12,
+        itemHeight: 8,
+        textStyle: {
+          color: "#fff",
+        },
       },
       series: [
         {
@@ -192,6 +251,8 @@ export default {
             { value: 580, name: "小区管理" },
             { value: 484, name: "行政服务" },
             { value: 300, name: "社会服务" },
+            { value: 1048, name: "民生保障" },
+            { value: 735, name: "社会稳定" },
           ],
         },
       ],
@@ -226,6 +287,57 @@ export default {
     text-align: center;
   }
 }
+.rexian {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+  box-sizing: border-box;
+  li {
+    display: flex;
+    img {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-left: 0.1rem;
+      justify-content: center;
+      align-items: center;
+      span {
+        font-size: 0.16rem;
+      }
+      strong {
+        font-size: 0.22rem;
+        color: rgba(0, 254, 144, 1);
+      }
+    }
+  }
+}
+.rexianfenbutitle {
+  position: relative;
+  font-size: 0.2rem;
+  text-align: center;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1.8rem;
+    height: 3px;
+    left: 0;
+    top: 0.1rem;
+    background: url('../../assets/person/xiao_title.png') no-repeat;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1.8rem;
+    height: 3px;
+    right: 0;
+    top: 0.1rem;
+    transform: rotate(180deg);
+    background: url('../../assets/person/xiao_title.png') no-repeat;
+  }
+}
 .list-show {
   height: 1.2rem;
   display: flex;
@@ -244,7 +356,25 @@ export default {
       font-weight: 500;
       strong {
         color: #00fe90;
-        font-size: 0.4rem;
+        font-size: 0.3rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+.zhiliangqingkuan {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    li {
+      width: 24%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.1rem 0;
+      span {
+        font-size: 0.2rem;
       }
     }
   }
@@ -258,7 +388,7 @@ export default {
   box-sizing: border-box;
   li {
     display: flex;
-    line-height: 0.35rem;
+    line-height: 0.25rem;
     span {
       display: inline-block;
       overflow: hidden;
@@ -306,6 +436,8 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #071726bd;
+  padding: 0.12rem;
   .conter-title {
     position: relative;
     color: #fff;
@@ -343,13 +475,8 @@ export default {
   .conter-detail {
     position: relative;
     width: 100%;
-    border-left: 0.01rem solid #00d8ff;
     margin-top: 0.2rem;
-    background: linear-gradient(
-      90deg,
-      rgba(1, 7, 21, 0.9) 0%,
-      rgba(1, 10, 23, 0.6) 100%
-    );
+
   }
 }
 .list-jindu {
@@ -370,4 +497,8 @@ export default {
       margin-right: 0.1rem;
     }
   }
+/deep/.el-progress__text {
+  color: #02E58D;
+  font-size: 0.3rem !important;
+}
 </style>
