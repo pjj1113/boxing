@@ -351,6 +351,70 @@ export default {
     background: #999;
   }
 }
+.eventlaiyuan {
+  padding: 0.15rem;
+  box-sizing: border-box;
+  ul {
+    display: flex;
+    flex-direction: column;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 0.5rem;
+      span {
+        display: inline-block;
+      }
+      i {
+        display: inline-block;
+        width: 3rem;
+        height: 0.2rem;
+        background: #3dadf9;
+      }
+    }
+  }
+}
+.ul-table {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 0.2rem;
+  li {
+    display: flex;
+    line-height: 0.5rem;
+    span {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 0.16rem;
+      &:nth-child(1) {
+        flex: 0.4rem;
+      }
+      &:nth-child(2) {
+        flex: 1;
+      }
+      &:nth-child(3) {
+        flex: 1;
+      }
+      &:nth-child(4) {
+        flex: 1;
+      }
+      &:nth-child(5) {
+        flex: 1;
+      }
+    }
+    &:nth-child(even) {
+      background: #224853;
+    }
+    &:nth-child(odd) {
+      background: #112530;
+    }
+  }
+  :nth-child(1) span {
+    background: #999;
+  }
+}
 
 .shijianzhanbi {
   display: flex;
